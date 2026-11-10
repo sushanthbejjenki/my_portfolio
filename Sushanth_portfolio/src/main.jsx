@@ -9,25 +9,32 @@ import './styles.css';
 
 const projects = [
   {
-    number: '01', name: 'Sathya Electronics', type: 'Business website · Electronics retail',
-    description: 'A customer-facing website for an electronics retailer, helping visitors explore the brand and its online presence.',
-    tags: ['Web development', 'Responsive design', 'Business website'],
-    visual: 'paper', label: 'ELECTRONICS WEBSITE',
-    link: 'https://sathyaelectronics.in/'
+    number: '01', name: 'Paper Work', type: 'Business operations · Web app',
+    description: 'A store paperwork management platform designed to organize daily reports and documents across multiple locations.',
+    tags: ['React', 'Node.js', 'MongoDB'],
+    visual: 'paper', label: 'DOCUMENT MANAGEMENT',
+    link: 'https://github.com/paperworkcollection/Paper_work'
   },
   {
-    number: '02', name: 'A&C Solutions', type: 'Corporate website · Employee portal',
-    description: 'A corporate website and employee portal bringing company information and staff workflows together in one digital experience.',
-    tags: ['Web development', 'Employee portal', 'Business systems'],
-    visual: 'ac', label: 'CORPORATE + EMPLOYEE PORTAL',
-    link: 'https://www.ancsolutionspvtltd.com/'
+    number: '02', name: 'A&C Solutions', type: 'Corporate website · Business',
+    description: 'A professional digital presence for a service-based company, presenting its services, company information and enquiry paths.',
+    tags: ['Web design', 'JavaScript', 'Responsive UI'],
+    visual: 'ac', label: 'CORPORATE WEBSITE',
+    link: 'https://a-c-v17-1.onrender.com'
   },
   {
-    number: '03', name: 'Golden Leaf', type: 'E-commerce · Online store',
-    description: 'A modern e-commerce experience designed around product discovery, clear presentation and a smooth shopping journey.',
-    tags: ['Next.js', 'TypeScript', 'E-commerce'],
-    visual: 'gold', label: 'E-COMMERCE WEBSITE',
-    link: 'https://golden-leaf-zjiw.vercel.app/'
+    number: '03', name: 'Golden Leaf', type: 'E-commerce · Concept build',
+    description: 'A modern commerce experience focused on clear product discovery, thoughtful visual design and a smooth shopping journey.',
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL'],
+    visual: 'gold', label: 'E-COMMERCE',
+    link: 'https://github.com/sushanthbejjenki/Golden-Leaf'
+  },
+  {
+    number: '04', name: 'ESP32 CSI Project', type: 'Embedded systems · Experiment',
+    description: 'An experimental wireless sensing project exploring channel-state information, device communication and real-time feedback.',
+    tags: ['ESP32', 'IoT', 'UDP'],
+    visual: 'iot', label: 'IOT EXPERIMENT',
+    link: 'https://github.com/sushanthbejjenki'
   }
 ];
 
@@ -48,8 +55,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', project: '' });
-  const email = 'sushanthbejjenki@gmail.com';
-  const phone = '+91 8179644161';
+  const email = 'YOUR_EMAIL@example.com'; // Replace with your preferred contact email.
   const github = 'https://github.com/sushanthbejjenki';
 
   const closeMenu = () => setMenuOpen(false);
@@ -90,7 +96,7 @@ function App() {
             <div className="art-orbit orbit-one"/><div className="art-orbit orbit-two"/>
             <div className="art-glow"/>
             <div className="art-card card-back"><span className="mini-label">CREATIVE / CODE</span><div className="code-lines"><i/><i/><i/><i/></div></div>
-            <div className="art-card card-front"><div className="art-top"><span>✳</span><span>01 — 03</span></div><div className="art-symbol">S<span>.</span></div><div className="art-bottom"><span>THOUGHTFUL<br/>BY DESIGN</span><ArrowUpRight/></div></div>
+            <div className="art-card card-front"><div className="art-top"><span>✳</span><span>01 — 04</span></div><div className="art-symbol">S<span>.</span></div><div className="art-bottom"><span>THOUGHTFUL<br/>BY DESIGN</span><ArrowUpRight/></div></div>
             <div className="floating-tag tag-one"><Sparkles size={15}/> Creative thinking</div>
             <div className="floating-tag tag-two"><Zap size={15}/> Built to perform</div>
             <div className="art-caption">A LITTLE CREATIVITY.<br/>A LOT OF PURPOSE.</div>
@@ -131,8 +137,8 @@ function App() {
 
         <section className="skills-section"><div className="section skills-inner"><div><p className="eyebrow"><span>04 /</span> MY TOOLKIT</p><h2>Tools of<br/><span className="muted">the trade.</span></h2></div><div className="skill-columns">{skills.map(([heading, ...items]) => <div className="skill-group" key={heading}><h3>{heading}</h3><div className="skill-list">{items.map(item => <span key={item}>{item}</span>)}</div></div>)}</div></div></section>
 
-        <section className="contact-section" id="contact"><div className="section contact-inner"><div className="contact-copy"><p className="eyebrow"><span>05 /</span> YOUR TURN</p><h2>Have a project<br/>in <span className="gradient-text">mind?</span></h2><p>Tell me what you're thinking. Whether it's a new website, a better workflow or an idea that needs a developer — let's make it happen.</p><a className="email-link" href={`mailto:${email}`}>{email} <ArrowUpRight size={17}/></a><a className="email-link phone-link" href={`tel:${phone.replace(/\s/g, '')}`}>{phone} <ArrowUpRight size={17}/></a><div className="social-links"><a href={github} target="_blank" rel="noreferrer"><Github size={17}/> GitHub <ArrowUpRight size={13}/></a></div></div>
-          <form className="contact-form" onSubmit={submit}><div className="form-heading"><span>LET'S MAKE IT REAL</span><Sparkles size={18}/></div><label>Your name<input required value={form.name} onChange={e=>setForm({...form,name:e.target.value})} placeholder="What should I call you?"/></label><label>Email address<input required type="email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} placeholder="you@example.com"/></label><label>Tell me about your project<textarea required rows="4" value={form.project} onChange={e=>setForm({...form,project:e.target.value})} placeholder="A little about what you want to build..."/></label><button className="button primary submit-button" type="submit">Send enquiry <Send size={16}/></button><p className="form-note">{sent ? 'Your email app should open with your enquiry. Send the message to complete your enquiry.' : 'This opens your email app with your message ready to send.'}</p></form>
+        <section className="contact-section" id="contact"><div className="section contact-inner"><div className="contact-copy"><p className="eyebrow"><span>05 /</span> YOUR TURN</p><h2>Have a project<br/>in <span className="gradient-text">mind?</span></h2><p>Tell me what you're thinking. Whether it's a new website, a better workflow or an idea that needs a developer — let's make it happen.</p><a className="email-link" href={`mailto:${email}`}>{email} <ArrowUpRight size={17}/></a><div className="social-links"><a href={github} target="_blank" rel="noreferrer"><Github size={17}/> GitHub <ArrowUpRight size={13}/></a></div></div>
+          <form className="contact-form" onSubmit={submit}><div className="form-heading"><span>LET'S MAKE IT REAL</span><Sparkles size={18}/></div><label>Your name<input required value={form.name} onChange={e=>setForm({...form,name:e.target.value})} placeholder="What should I call you?"/></label><label>Email address<input required type="email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} placeholder="you@example.com"/></label><label>Tell me about your project<textarea required rows="4" value={form.project} onChange={e=>setForm({...form,project:e.target.value})} placeholder="A little about what you want to build..."/></label><button className="button primary submit-button" type="submit">Send enquiry <Send size={16}/></button><p className="form-note">{sent ? 'Your email app should open with your enquiry. Add your contact email in src/main.jsx before publishing.' : 'This opens your email app with your message ready to send.'}</p></form>
         </div></section>
       </main>
       <footer className="footer"><a className="brand" href="#home"><span className="brand-mark">S.</span><span>SUSHANTH<span className="brand-dot">.</span></span></a><span>DESIGNED WITH INTENTION · BUILT WITH CARE</span><a href="#home" className="back-top">BACK TO TOP ↑</a><span className="copyright">© {new Date().getFullYear()} Sushanth</span></footer>
