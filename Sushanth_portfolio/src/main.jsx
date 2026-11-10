@@ -1,5 +1,5 @@
 
-import "./App.css";
+import "./style.css";
 
 const projects = [
   {
